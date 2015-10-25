@@ -30,7 +30,7 @@ for img_index in range(0, 10000):
     # Find contours
     contours = cv2.findContours(dilation.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)[0]
 
-    # Find bounding rect
+    # Find bounding rect, only choose larger than 15 x 15
     bounding_rects = [cv2.boundingRect(c) for c in contours]
     choosed_rects = [c for c in bounding_rects if c[2] > 15 and c[3] > 15]
     choosed_rects.sort(key=lambda x: x[0])

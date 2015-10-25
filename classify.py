@@ -38,6 +38,6 @@ image_names = [name for name in os.listdir('img1-segment') if name[-4:] == '.png
 for image_name in image_names:
     image = cv2.imread('img1-segment/{}'.format(image_name), 0)
     target_mse = [(ch, mse(image, targets[ch])) for ch in targets]
-    result = min(target_mse, key=lambda x:x[1])[0]
-    cv2.imwrite("{}/{}/{}.png".format(PATH, result, image_name), image)
+    outcome_char = min(target_mse, key=lambda x:x[1])[0]
+    cv2.imwrite("{}/{}/{}.png".format(PATH, outcome_char, image_name), image)
 
