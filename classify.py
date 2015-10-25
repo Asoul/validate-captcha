@@ -23,25 +23,20 @@ create_folders()
 def mse(img1, img2):
     return np.sum((img1 - img2) ** 2) / img1.size
 
-def loadImage(path):
-    image = cv2.imread(path)
-    gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    return cv2.threshold(gray_image, 127, 255, 0)[1]
-
 # Load Sample Alphabets
 targets = {}
 
 for i in range(0, 10):
-    targets[str(i)] = loadImage('sample-alphabet/{}.png'.format(i))
+    targets[str(i)] = cv2.imread('sample-alphabet/{}.png'.format(i), 0)
 
 for i in range(65, 91):
-    targets[chr(i)] = loadImage('sample-alphabet/{}.png'.format(chr(i)))
+    targets[chr(i)] = cv2.imread('sample-alphabet/{}.png'.format(chr(i)), 0)
 
 image_names = [name for name in os.listdir('img1-segment') if name[-4:] == '.png']
 
 # Classify
 for image_name in image_names:
-    image = loadImage('img1-segment/{}'.format(image_name))
+    image = cv2.imread('img1-segment/{}'.format(image_name), 0)
     target_mse = [(ch, mse(image, targets[ch])) for ch in targets]
     result = min(target_mse, key=lambda x:x[1])[0]
     cv2.imwrite("{}/{}/{}.png".format(PATH, result, image_name), image)
