@@ -10,7 +10,7 @@ This project is based on [collect-captcha](https://github.com/Asoul/collect-capt
 
 ### Erode
 
-<img src="https://raw.githubusercontent.com/Asoul/validate-captcha/master/demo/blurred.png">
+<img src="https://raw.githubusercontent.com/Asoul/validate-captcha/master/demo/erosion.png">
 
 ### Blur
 
@@ -20,7 +20,7 @@ This project is based on [collect-captcha](https://github.com/Asoul/collect-capt
 
 <img src="https://raw.githubusercontent.com/Asoul/validate-captcha/master/demo/edged.png">
 
-### Dilation
+### Dilate
 
 <img src="https://raw.githubusercontent.com/Asoul/validate-captcha/master/demo/dilation.png">
 
