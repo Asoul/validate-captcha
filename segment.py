@@ -12,7 +12,7 @@ if not os.path.isdir(PATH):
 
 for img_index in range(0, 10000):
 
-    image = cv2.imread('collect-recaptcha/img/{}.jpg'.format(str(img_index).zfill(4)))
+    image = cv2.imread('collect-captcha/img/{}.jpg'.format(str(img_index).zfill(4)))
 
     # Erode noise
     kernel = np.ones((4, 4), np.uint8)
