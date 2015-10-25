@@ -34,8 +34,20 @@ This project is based on [collect-captcha](https://github.com/Asoul/collect-capt
 
 ## Ranking Steps
 
-- calculate Mean Square Error for targets
-- choose the smallest error one
+- Calculate Mean Error for targets
+- Choose the smallest error one
+
+## Usage
+
+- 把 [collect-captcha](https://github.com/Asoul/collect-captcha) 抓到目錄下，或用 soft link
+- 預處理和切字：`python segement.py`
+- 分類：`python classify.py`
+
+## Issues
+
+- 轉換 10000 張圖片，共 50000 個字後，共有 46024 個字可以被切出來，成功率還蠻高的，沒被切出來的可能像是兩個黏在一起的字，目前還未處理。
+- Ranking 時用的 Error function 先是試 Mean Square Error，發現有些很差，換了 Delta Error 之後感覺有好一些，只是還可以改進。
+- 分類上目測成功率有些字很好，有些卻很差，也需要進一步改進。
 
 ## Reference
 

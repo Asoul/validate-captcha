@@ -20,8 +20,8 @@ def create_folders():
 
 create_folders()
 
-def mse(img1, img2):
-    return np.sum((img1 - img2) ** 2) / img1.size
+def distance(img1, img2):
+    return np.sum(img1 - img2)
 
 # Load Sample Alphabets
 targets = {}
@@ -37,7 +37,7 @@ image_names = [name for name in os.listdir('img1-segment') if name[-4:] == '.png
 # Classify
 for image_name in image_names:
     image = cv2.imread('img1-segment/{}'.format(image_name), 0)
-    target_mse = [(ch, mse(image, targets[ch])) for ch in targets]
-    outcome_char = min(target_mse, key=lambda x:x[1])[0]
+    target_distances = [(ch, distance(image, targets[ch])) for ch in targets]
+    outcome_char = min(target_distances, key=lambda x:x[1])[0]
     cv2.imwrite("{}/{}/{}.png".format(PATH, outcome_char, image_name), image)
 
