@@ -1,12 +1,18 @@
 # -*- coding: utf-8 -*-
 
+import os
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-for pic_index in range(0, 10):
+PATH = 'img1-segment'
 
-    image = cv2.imread('collect-recaptcha/img/{}.jpg'.format(str(pic_index).zfill(4)))
+if not os.path.isdir(PATH):
+    os.mkdir(PATH)
+
+for img_index in range(0, 10000):
+
+    image = cv2.imread('collect-recaptcha/img/{}.jpg'.format(str(img_index).zfill(4)))
 
     # Erode noise
     kernel = np.ones((4, 4), np.uint8)
@@ -29,8 +35,17 @@ for pic_index in range(0, 10):
     choosed_rects = [c for c in bounding_rects if c[2] > 15 and c[3] > 15]
     choosed_rects.sort(key=lambda x: x[0])
 
-    # Save segmented picture
+    # Save segmented image
     for char_index, (x, y, w, h) in enumerate(choosed_rects):
+        # Skip contain more than 1 alphabet
+        if w > 50:
+            continue
+        # Skip contour inside contour
+        if char_index > 1:
+            last_x, last_y, last_w, last_h = choosed_rects[char_index - 1]
+            if last_x <= x <= x + h <= last_x + last_h:
+                continue
+
         resized = cv2.resize(dilation[y : y + h, x : x + w], (50, 50))
-        cv2.imwrite("img1-segment/{}-{}.png".format(str(pic_index).zfill(4) , char_index), resized)
+        cv2.imwrite("{}/{}-{}.png".format(PATH, str(img_index).zfill(4) , char_index), resized)
 
