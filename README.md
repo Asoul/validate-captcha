@@ -29,8 +29,8 @@ This project is based on [collect-captcha](https://github.com/Asoul/collect-capt
 <img src="https://raw.githubusercontent.com/Asoul/validate-captcha/master/demo/0001-0.png">
 <img src="https://raw.githubusercontent.com/Asoul/validate-captcha/master/demo/0001-1.png">
 <img src="https://raw.githubusercontent.com/Asoul/validate-captcha/master/demo/0001-2.png">
-<img src="https://raw.githubusercontent.com/Asoul/validate-captcha/master/demo/0001-3.png">
 <img src="https://raw.githubusercontent.com/Asoul/validate-captcha/master/demo/0001-4.png">
+<img src="https://raw.githubusercontent.com/Asoul/validate-captcha/master/demo/0001-5.png">
 
 ## Ranking Steps
 
@@ -44,3 +44,4 @@ Thanks to [David's tutorial](https://www.youtube.com/watch?t=16&v=KESG8I9C3oA)
 ## TODO
 
 1. 補上實際抓的 code
+2. 上櫃的還沒做
