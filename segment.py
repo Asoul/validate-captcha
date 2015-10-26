@@ -46,6 +46,11 @@ for img_index in range(0, 10000):
             if last_x <= x <= x + h <= last_x + last_h:
                 continue
 
+        # Resize
         resized = cv2.resize(dilation[y : y + h, x : x + w], (50, 50))
-        cv2.imwrite("{}/{}-{}.png".format(PATH, str(img_index).zfill(4) , char_index), resized)
 
+        # Digitalize
+        threshold = cv2.threshold(resized, 127, 255, 0)[1]
+
+        # Save as png
+        cv2.imwrite("{}/{}-{}.png".format(PATH, str(img_index).zfill(4) , char_index), threshold)
