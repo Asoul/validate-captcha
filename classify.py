@@ -21,7 +21,7 @@ def create_folders():
 create_folders()
 
 def distance(img1, img2):
-    return np.sum(img1 - img2)
+    return np.sum(abs(img1.astype('int') - img2.astype('int'))/255)
 
 # Load Sample Alphabets
 targets = {}
@@ -39,5 +39,5 @@ for image_name in image_names:
     image = cv2.imread('img1-segment/{}'.format(image_name), 0)
     target_distances = [(ch, distance(image, targets[ch])) for ch in targets]
     outcome_char = min(target_distances, key=lambda x:x[1])[0]
-    cv2.imwrite("{}/{}/{}.png".format(PATH, outcome_char, image_name), image)
+    cv2.imwrite("{}/{}/{}".format(PATH, outcome_char, image_name), image)
 
