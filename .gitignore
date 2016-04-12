@@ -1,3 +1,7 @@
-/collect-captcha*
-/img1-segment*
-/classified*
+collect-captcha/*
+img1-segment/*
+classified/*
+
+*.png
+*.csv
+*.ipynb

@@ -43,17 +43,6 @@ This project is based on [collect-captcha](https://github.com/Asoul/collect-capt
 - 預處理和切字：`python segement.py`
 - 分類：`python classify.py`
 
-## Issues
-
-- 轉換 10000 張圖片，共 50000 個字後，共有 46024 個字可以被切出來，成功率還蠻高的，沒被切出來的可能像是兩個黏在一起的字，目前還未處理。
-- Ranking 時用的 Error function 先是試 Mean Square Error，發現有些很差，換了 Delta Error 之後感覺有好一些，只是還可以改進。
-- 分類上目測成功率有些字很好，有些卻很差，也需要進一步改進。
-
 ## Reference
 
 Thanks to [David's tutorial](https://www.youtube.com/watch?t=16&v=KESG8I9C3oA)
-
-## TODO
-
-1. 補上實際抓的 code
-2. 上櫃的還沒做
